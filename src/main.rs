@@ -4,6 +4,45 @@ enum SomeValues{
     Text(String)
 }
 
+enum IpAddrKind{
+    V4(String),
+    V6(String)
+}
+
+struct QuitMessage;
+struct  MoveMessage{
+    x: i32, y: i32
+}
+struct WriteMessage(String);
+struct ChangeColorMessage(i32, i32, i32);
+
+enum Message{
+    Quit,
+    Move {x: i32, y: i32},
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+impl Message {
+    fn call(&self, ){
+        println!("Hello",);
+    }
+}
+
+fn test_enums(){
+    let four = IpAddrKind::V4(String::from("127.0.0.1"));
+    let six = IpAddrKind::V6(String::from("::1"));
+    
+    let m = Message::Write(String::from("hello"));
+    m.call();
+    
+    let some_number = Some(5);
+    let some_char = Some('h');
+
+    let absent_number: Option<i32> = None;
+}
+
+
 fn test_vectors(){
     let mut vec1: Vec<u32> = Vec::new();
     let mut vec2 = vec![1, 2, 3];
@@ -59,4 +98,5 @@ fn test_strings_in_utf(){
 fn main() {
     test_vectors();
     test_strings_in_utf();
+    test_enums();
 }
