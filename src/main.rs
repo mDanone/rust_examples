@@ -2,6 +2,7 @@ mod enums;
 mod vectors;
 mod utf_strings;
 mod control_flow;
+mod scopes;
 
 use enums::enums::test_enums;
 use vectors::vectors::test_vectors;

@@ -1,4 +1,3 @@
-
 enum IpAddrKind {
     V4(String),
     V6(String)
@@ -23,16 +22,19 @@ enum SomeValues{
     Text(String)
 }
 
+fn test_parent(){}
+
+mod test_parent_mod{
+    fn test_child(){
+        super::test_parent();
+    }
+}
+
 pub fn test_enums(){
-    let four = IpAddrKind::V4(String::from("127.0.0.1"));
-    let six = IpAddrKind::V6(String::from("::1"));
 
     let m = Message::Write(String::from("hello"));
     m.call();
 
-    let some_number = Some(5);
-    let some_char = Some('h');
-    let absent_number: Option<i32> = None;
 
     let mut enum_vec = vec![
         SomeValues::Int(2),
