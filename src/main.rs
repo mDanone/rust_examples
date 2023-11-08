@@ -1,21 +1,14 @@
 mod enums;
-mod vectors;
-mod utf_strings;
+mod collections;
 mod control_flow;
 mod scopes;
 
 use enums::enums::test_enums;
-use vectors::vectors::test_vectors;
-use utf_strings::utf_strings::test_strings_in_utf;
+use collections::vectors::test_vectors;
+use collections::utf_strings::test_strings_in_utf;
+use collections::tasks::task_tests;
 use control_flow::control_flow::test_control_flow;
-
-
-fn test_if_let(){
-    let config_max = Some(3u8);
-    if let Some(max) = config_max {
-        println!("The maximum is configured to be {}", max);
-    }
-}
+use collections::hash_maps::test_maps;
 
 
 fn main() {
@@ -23,4 +16,6 @@ fn main() {
     test_strings_in_utf();
     test_enums();
     test_control_flow();
+    test_maps();
+    task_tests();
 }
