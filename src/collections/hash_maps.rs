@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 
 pub fn test_maps(){
+    println!("\nHASHMAPS");
     let mut scores = HashMap::new();
 
     scores.insert(String::from("Blue"), 10);

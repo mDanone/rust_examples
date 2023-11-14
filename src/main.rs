@@ -3,6 +3,7 @@ mod collections;
 mod control_flow;
 mod scopes;
 mod exceptions;
+mod generics;
 
 use enums::enums::test_enums;
 use collections::vectors::test_vectors;
@@ -11,6 +12,7 @@ use collections::tasks::task_tests;
 use control_flow::control_flow::test_control_flow;
 use collections::hash_maps::test_maps;
 use exceptions::exceptions::exception_handler;
+use generics::generics::test_generics;
 
 
 fn main() {
@@ -20,5 +22,6 @@ fn main() {
     test_control_flow();
     test_maps();
     task_tests();
-    exception_handler();
+    // exception_handler();
+    test_generics();
 }

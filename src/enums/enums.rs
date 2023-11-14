@@ -31,6 +31,7 @@ mod test_parent_mod{
 }
 
 pub fn test_enums(){
+    println!("\nENUMS!!!");
 
     let m = Message::Write(String::from("hello"));
     m.call();

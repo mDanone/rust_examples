@@ -1,4 +1,5 @@
 pub fn test_strings_in_utf(){
+    println!("\nSTRINGS!!!");
     let mut s1 = String::new();
     s1.push_str("foobar");
 

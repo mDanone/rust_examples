@@ -1,5 +1,6 @@
 
 pub fn test_vectors(){
+    println!("\nVECTORS!!!");
     let mut vec1: Vec<u32> = Vec::new();
     let mut vec2 = vec![1, 2, 3];
     vec1.push(2);

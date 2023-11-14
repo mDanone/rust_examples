@@ -35,6 +35,7 @@ fn plus_one(x: Option<i32>) -> Option<i32> {
 }
 
 pub fn test_control_flow(){
+    println!("\nCONTROL FLOW!!!");
     value_in_cents(Coin::Quarter(UsState::Alabama));
 
     let five = Some(5);

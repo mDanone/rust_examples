@@ -2,6 +2,7 @@ use std::collections::HashMap;
 use std::io::{stdin,stdout,Write};
 
 pub fn task_tests(){
+    println!("\nTASKS");
     let mut integer_list = vec![59, 2, 100, 100, 42, 42, 42, 42, 14, 60, 10];
     integer_list_stats(&mut integer_list);
 
