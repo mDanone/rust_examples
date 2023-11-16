@@ -36,12 +36,12 @@ pub fn test_enums(){
     let m = Message::Write(String::from("hello"));
     m.call();
 
-
     let mut enum_vec = vec![
         SomeValues::Int(2),
         SomeValues::Float(10.0),
         SomeValues::Text(String::from("Hello world"))
     ];
+    let x = SomeValues::Int(3);
     for enum_value in enum_vec.iter_mut(){
         match enum_value{
             SomeValues::Int(value) => println!("This is SomeValues integer {}", value),

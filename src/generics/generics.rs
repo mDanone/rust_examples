@@ -37,11 +37,46 @@
 //     }
 // }
 
+pub trait Summary {
+    fn summarize(&self) -> String{
+        String::from("Read more...")
+    }
+}
+
+struct NewsArticle {
+    author: String,
+    title: String,
+    text: String
+}
+
+impl Summary for NewsArticle{
+    fn summarize(&self) -> String {
+        format!("{}:\n{}\n{}", self.author, self.title, self.text)
+    }
+}
+
+
+struct Tweet {
+    author: String,
+    message: String
+}
+
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.author, self.message)
+    }
+}
+
+
+struct Empty{}
+impl Summary for Empty{}
 
 struct Point<X1, Y1>{
     x: X1,
     y: Y1
 }
+
 
 
 impl<X1, Y1> Point<X1, Y1>{
@@ -50,6 +85,16 @@ impl<X1, Y1> Point<X1, Y1>{
     }
 }
 
+pub fn notify(item: &impl Summary){
+    println!("Breaking News! {}", item.summarize());
+}
+
+pub fn returns_summarizable(is_article: bool) -> impl Summary {
+    Tweet{
+        author: String::from("Kate"),
+        message: String::from("Some Kate's message")
+    }
+}
 
 
 pub fn test_generics(){
@@ -69,6 +114,18 @@ pub fn test_generics(){
     let point5 = point3.mixup(point4);
 
     println!("Mixed Point is x = {} and y = {}", point5.x, point5.y);
+
+    let article = NewsArticle {
+        author: String::from("Mark"),
+        title: String::from("FRESH NEWS"),
+        text: String::from("Something Good Happened")
+    };
+    notify(&article);
+
+    let tweet = Tweet {author: String::from("Jeremy"), message: String::from("Nah You are lying")};
+    notify(&tweet);
+
+    println!("{}", Empty{}.summarize());
 }
 
 fn largest<T: std::cmp::PartialOrd>(items_list: &[T]) -> &T {
