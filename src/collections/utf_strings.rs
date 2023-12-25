@@ -21,4 +21,5 @@ pub fn test_strings_in_utf(){
         print!("{sym}");
     }
     println!();
+
 }
